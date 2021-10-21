@@ -28,6 +28,7 @@ jobs:
           echo "${{ env.FOO }}"    
   secondjob:
     name: secondjob
+    if: github.ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
     steps:
       - name: boots
