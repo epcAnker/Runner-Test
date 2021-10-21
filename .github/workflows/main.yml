@@ -26,3 +26,14 @@ jobs:
         id: step_two
         run: |
           echo "${{ env.FOO }}"    
+  secondjob:
+    name: secondjob
+    runs-on: ubuntu-latest
+    steps:
+      - name: boots
+        run: |
+          echo "FOO=$(echo abc)" >> $GITHUB_ENV
+      - name: Use the value
+        id: step_two
+        run: |
+          echo "${{ env.FOO }}"    
