@@ -31,8 +31,7 @@ jobs:
         
       # Runs a single command using the runners shell
       - name: WHICHRUNNERAMI
-        run: |
-          echo "cishould be true  $ci"
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
    
          # Runs a single command using the runners shell
       - name: WHICHRUNNERAMITWO
