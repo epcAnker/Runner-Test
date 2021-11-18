@@ -11,4 +11,4 @@ jobs:
     
     
     - name: two
-      run: cat "${Env:RUNNER_NAME}".env
+      run: cat "${Env:RUNNER_NAME}"
