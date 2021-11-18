@@ -31,13 +31,13 @@ jobs:
         
       # Runs a single command using the runners shell
       - name: WHICHRUNNERAMI
-        if: ${{ env.RUNNER_NAME == 'AlexA-LP' }}
+        if: ${{ env.RUNNER_OS == 'Windows' }}
         run: |
           echo 123
    
          # Runs a single command using the runners shell
       - name: WHICHRUNNERAMITWO
-        if: ${{ env.RUNNER_NAME == 'AlexAB-LP' }}
+        if: ${{ env.RUNNER_OS == 'Mac' }}
         run: |
           echo 234
    
