@@ -22,7 +22,7 @@ jobs:
       - name: boots
         run: |
           echo "FOO=$(echo abc)" >> $GITHUB_ENV
-      - name: Use the value
+      - name: Use the valuea
         id: step_two
         run: |
           echo "${{ env.FOO }}"    
