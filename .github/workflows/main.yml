@@ -32,7 +32,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: WHICHRUNNERAMI
         run: |
-          echo echo "cishould be true  $ci"
+          echo "cishould be true  $ci"
    
          # Runs a single command using the runners shell
       - name: WHICHRUNNERAMITWO
