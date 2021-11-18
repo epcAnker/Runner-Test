@@ -31,9 +31,8 @@ jobs:
         
       # Runs a single command using the runners shell
       - name: WHICHRUNNERAMI
-        if: ${{ env.RUNNER_OS == 'Windows' }}
         run: |
-          echo 123
+          echo echo "cishould be true  $ci"
    
          # Runs a single command using the runners shell
       - name: WHICHRUNNERAMITWO
