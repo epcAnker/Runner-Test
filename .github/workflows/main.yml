@@ -7,22 +7,4 @@ jobs:
     steps:
     
     - name: Run a one-line script
-      run: echo "Deploying to production server on branch ${Env:GITHUB_REF}"
-    
-    
-    - name: Set Variables
-      run: |
-        echo "Working Path: ${Env:GITHUB_WORKSPACE}"
-        $branchName = $Env:GITHUB_REF -replace 'refs/heads/', ''
-        echo "Branch: ${branchName}"
-        echo "CURRENT_BRANCH=${branchName}" >> $Env:GITHUB_ENV
-
-    - name: Output Variables
-      run: |
-        echo "${Env:CURRENT_BRANCH}"
-
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-      with:
-        repository: 'MyRepoName'
-        ref: ${{ env.CURRENT_BRANCH }}
+      run: echo "Deploying to production server on branch ${Env:RUNNER_NAME}"
