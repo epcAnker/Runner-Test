@@ -7,7 +7,6 @@ jobs:
     steps:
     
     - name: Run a one-line script
-      shell: powershell
       run: echo "Deploying to production server on branch ${Env:GITHUB_REF}"
     
     
