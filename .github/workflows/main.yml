@@ -31,8 +31,15 @@ jobs:
         
       # Runs a single command using the runners shell
       - name: WHICHRUNNERAMI
+        if: ${{ env.RUNNER_NAME == 'AlexA-LP' }}
         run: |
-          echo "${{  env.RUNNER_NAME  }}"
+          echo 123
+   
+         # Runs a single command using the runners shell
+      - name: WHICHRUNNERAMITWO
+        if: ${{ env.RUNNER_NAME == 'AlexAB-LP' }}
+        run: |
+          echo 234
    
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
