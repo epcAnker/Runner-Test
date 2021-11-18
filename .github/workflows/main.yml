@@ -31,8 +31,8 @@ jobs:
         
       # Runs a single command using the runners shell
       - name: WHICHRUNNERAMI
-      run :|
-        Write-Output "::set-env name=BUILD_NUMBER::$hostname"
+        run: |
+          Write-Output "::set-env name=BUILD_NUMBER::$hostname"
 
       - name: GETVAL
         run: echo $env:BUILD_NUMBER
