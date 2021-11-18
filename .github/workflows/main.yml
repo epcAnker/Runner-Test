@@ -2,13 +2,18 @@ name: CI
 on: push
 jobs:
   prod-check:
-    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: windows
     steps:
-    
+
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
     - name: Run a one-line script
       run: echo "Deploying to production server on branch ${Env:RUNNER_NAME}"
     
     
     - name: two
       run: cat "${Env:RUNNER_NAME}"
+
+    - name: three
+      run: cat "${Env:RUNNER_NAME}.env"
