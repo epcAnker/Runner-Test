@@ -17,6 +17,8 @@ jobs:
     - name: onefive
       run: echo "${Env:FileContents}"
 
+    - name: json
+      run: echo "$(Get-Content -Path ${Env:RUNNER_NAME} | ConvertFrom-Json).comport"
 
     
     - name: two
