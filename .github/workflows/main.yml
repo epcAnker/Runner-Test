@@ -20,7 +20,7 @@ jobs:
     - name: json
       run: |
         pwd
-        echo "jsonComport=$(Get-Content ${Env:RUNNER_NAME}.json | ConvertFrom-Json).comport"  >> $Env:GITHUB_ENV
+        echo "jsonComport=$(Get-Content C:\actions-runner\_work\Runner-Test\Runner-Test\${Env:RUNNER_NAME}.json | ConvertFrom-Json).comport"  >> $Env:GITHUB_ENV
 
     - name: jsontwo
       run: echo "${Env:jsonComport}"
