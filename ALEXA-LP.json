@@ -1,3 +1,5 @@
-comport=com9
-othersetting=abc
-blah=blah
+{
+	"comport": "com9",
+	"othervar": "abc",
+  "othervar2": "othervar2"
+}
