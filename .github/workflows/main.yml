@@ -12,10 +12,10 @@ jobs:
       run: echo "Deploying to production server on branch ${Env:RUNNER_NAME}"
 
     - name: one
-      run: cat ${Env:RUNNER_NAME}
+      run: MYSTUFF="cat ${Env:RUNNER_NAME}" >> $Env:GITHUB_ENV
 
     - name: onefive
-      run: cat "${Env:RUNNER_NAME}.env"
+      run: echo "${Env:MYSTUFF}"
 
 
     
