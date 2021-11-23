@@ -13,6 +13,8 @@ jobs:
     runs-on: windows
     steps:
 
+    - name: develop
+      run: echo "label name = %(github.event.label.name)"
 
     - name: develop
       if: github.ref == 'refs/heads/develop'   
@@ -22,3 +24,6 @@ jobs:
       if: github.event.label.name == 'baretest'
       run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
 
+    - name: Both
+      if: github.event.label.name == 'baretest' && if: github.ref == 'refs/heads/develop'   
+      run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
