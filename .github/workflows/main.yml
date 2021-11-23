@@ -14,7 +14,7 @@ jobs:
     steps:
 
     - name: develop1
-      run: echo "label name = ${ENV:github.event.label.name} ${Env:RUNNER_NAME}"
+      run: echo "label name = ${ENV:github.event.label.name} ${Env:RUNNER_NAME} ${GITHUB_REF##*/}"
       
     - name: develop2
       run: echo "label name = ${ENV:github.ref}"
