@@ -2,14 +2,16 @@ name: CI
 on: push
 jobs:
   prod-check:
-    runs-on: ubuntu-latest
-    container: docker://altendky/ccstudio9:latest
+  prod-check:
+    runs-on: windows
     steps:
 
 
-    - name: Run a one-line script
+    - name: develop
+      if: github.ref == 'refs/heads/develop'   
       run: echo "Deploying to production server on branch"
 
-    - name: one
+    - name: baretest label
+      if: ${{ github.event.label.name == 'baretest' }}
       run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
 
