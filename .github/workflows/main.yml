@@ -2,8 +2,8 @@ name: CI
 on:
     branches:
       - "**"
-    pull_request:
-      types: [ labeled ]
+    tags:
+      - "**"
 
 jobs:
   prod-check:
