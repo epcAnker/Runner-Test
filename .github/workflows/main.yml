@@ -11,6 +11,6 @@ jobs:
       run: echo "Deploying to production server on branch"
 
     - name: baretest label
-      if: ${{ github.event.label.name == 'baretest' }}
+      if: github.event.label.name == 'baretest'
       run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
 
