@@ -2,7 +2,6 @@ name: CI
 on: push
 jobs:
   prod-check:
-  prod-check:
     runs-on: windows
     steps:
 
