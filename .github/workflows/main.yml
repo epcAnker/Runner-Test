@@ -25,5 +25,5 @@ jobs:
       run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
 
     - name: Both
-      if: github.event.label.name == 'baretest' && if: github.ref == 'refs/heads/develop'   
+      if: github.event.label.name == 'baretest' && github.ref == 'refs/heads/develop'   
       run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
