@@ -2,31 +2,14 @@ name: CI
 on: push
 jobs:
   prod-check:
-    runs-on: windows
+    runs-on: ubuntu-latest
+    container: docker://altendky/ccstudio9:latest
     steps:
 
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
 
     - name: Run a one-line script
-      run: echo "Deploying to production server on branch ${Env:RUNNER_NAME}"
+      run: echo "Deploying to production server on branch"
 
     - name: one
       run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
 
-    - name: onefive
-      run: echo "${Env:FileContents}"
-
-    - name: json
-      run: |
-        pwd
-        echo "jsonComport=$($(Get-Content .\${Env:RUNNER_NAME}.json | ConvertFrom-Json).comport)"  >> $Env:GITHUB_ENV
-
-    - name: jsontwo
-      run: echo "${Env:jsonComport}"
-    
-    - name: two
-      run: cat "${Env:RUNNER_NAME}"
-
-    - name: three
-      run: cat "${Env:RUNNER_NAME}.env"
