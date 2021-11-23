@@ -17,9 +17,8 @@ jobs:
       run: echo "label name = ${ENV:github.event.label.name}"
       
     - name: develop2
-      run: echo "label name = ${ENV:github.event.label.name}"
-
       run: echo "label name = ${ENV:github.ref}"
+
     - name: develop
       if: github.ref == 'refs/heads/develop'   
       run: echo "Deploying to production server on branch"
