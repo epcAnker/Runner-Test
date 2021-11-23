@@ -17,7 +17,7 @@ jobs:
       run: echo "label name = ${Env:github.event.label.name} ${Env:RUNNER_NAME} ${Env:GITHUB_REF##*/}"
       
     - name: develop2
-      run: echo "label name = ${ENV:github.ref}"
+      run: echo "label name = ${Env:github.ref}"
 
     - name: develop
       if: github.ref == 'refs/heads/develop'   
