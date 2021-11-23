@@ -13,9 +13,13 @@ jobs:
     runs-on: windows
     steps:
 
-    - name: develop
-      run: echo "label name = ${github.event.label.name}"
+    - name: develop1
+      run: echo "label name = ${ENV:github.event.label.name}"
+      
+    - name: develop2
+      run: echo "label name = ${ENV:github.event.label.name}"
 
+      run: echo "label name = ${ENV:github.ref}"
     - name: develop
       if: github.ref == 'refs/heads/develop'   
       run: echo "Deploying to production server on branch"
