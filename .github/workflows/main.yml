@@ -30,3 +30,7 @@ jobs:
     - name: Both
       if: github.event.label.name == 'baretest' || github.ref == 'refs/heads/develop'   
       run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
+
+    - name: commit message
+      if: github.event.head_commit.message == 'baretest'
+      run: echo "hello 123"
