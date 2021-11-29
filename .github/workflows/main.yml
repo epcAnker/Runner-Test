@@ -1,30 +1,49 @@
-on: push
+
+name: CI
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "**"
+  pull_request:
+    types: [ labeled ]
+
 jobs:
   prod-check:
     runs-on: windows
     steps:
 
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - name: develop1
+      run: echo "label name = ${Env:github.event.label.name} ${Env:RUNNER_NAME} ${Env:GITHUB_REF}"
+      
+    - name: develop2
+      run: echo "label name = ${Env:github.ref}"
 
-    - name: Run a one-line script
-      run: echo "Deploying to production server on branch ${Env:RUNNER_NAME}"
+    - name: develop
+      if: github.ref == 'refs/heads/develop'   
+      run: echo "Deploying to production server on branch"
 
-    - name: one
+    - name: baretest label
+      if: github.event.label.name == 'baretest'
       run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
 
-    - name: onefive
-      run: echo "${Env:FileContents}"
+    - name: Both
+      if: github.event.label.name == 'baretest' || github.ref == 'refs/heads/develop'   
+      run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
 
-    - name: json
-      run: |
-        pwd
-        echo "jsonComport=$($(Get-Content .\${Env:RUNNER_NAME}.json | ConvertFrom-Json).comport)"  >> $Env:GITHUB_ENV
-    - name: jsontwo
-      run: echo "${Env:jsonComport}"
-
-    - name: two
-      run: cat "${Env:RUNNER_NAME}"
-
-    - name: three
-      run: cat "${Env:RUNNER_NAME}.env"
+    - name: commit message_
+      if: contains(github.event.head_commit.message, 'baretest')
+      run: echo "hello 123"
+      
+  all:
+    name: All
+    runs-on: ubuntu-latest
+    needs:
+      - develop1
+      - develop1
+    steps:
+      - name: This
+        shell: python
+        run: |
+          import this
