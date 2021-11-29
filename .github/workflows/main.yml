@@ -1,6 +1,7 @@
 on: push
 jobs:
   prod-check:
+    timeout-minutes: 1
     runs-on: windows
     steps:
 
