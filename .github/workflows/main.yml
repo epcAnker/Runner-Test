@@ -35,3 +35,15 @@ jobs:
     - name: commit message_
       if: contains(github.event.head_commit.message, 'baretest')
       run: echo "hello 123"
+      
+ all:
+    name: All
+    runs-on: ubuntu-latest
+    needs:
+      - develop1
+      - develop1
+    steps:
+      - name: This
+        shell: python
+        run: |
+          import this      
