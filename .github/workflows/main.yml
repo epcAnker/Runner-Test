@@ -32,6 +32,6 @@ jobs:
       if: github.event.label.name == 'baretest' || github.ref == 'refs/heads/develop'   
       run: echo "FileContents=$(cat ${Env:RUNNER_NAME})" >> $Env:GITHUB_ENV
 
-    - name: commit message__
+    - name: commit message_
       if: contains(github.event.head_commit.message.toUpperCase, 'BARETEST')
       run: echo "hello 123"
