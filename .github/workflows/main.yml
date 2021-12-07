@@ -28,11 +28,8 @@ jobs:
 
     - name: three
       run: cat "${Env:RUNNER_NAME}.env"
-
-    - uses: actions/upload-artifact@v2
-      with:
-        path: artifactPathTest/1
         
     - uses: actions/upload-artifact@v2
       with:
+        name: artifactFolder
         path: artifactPathTest/
